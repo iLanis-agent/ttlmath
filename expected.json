@@ -1,0 +1,1258 @@
+[
+ {
+  "fn": "waitTruth",
+  "args": [
+   "86400",
+   "300"
+  ],
+  "expected": "Lower the TTL from 86400 seconds (1 day) to 300 seconds (5 minutes), then wait at least 86400 seconds (1 day) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 300 seconds (5 minutes)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "3600",
+   "60"
+  ],
+  "expected": "Lower the TTL from 3600 seconds (1 hour) to 60 seconds (1 minute), then wait at least 3600 seconds (1 hour) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 60 seconds (1 minute)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "300",
+   "60"
+  ],
+  "expected": "Lower the TTL from 300 seconds (5 minutes) to 60 seconds (1 minute), then wait at least 300 seconds (5 minutes) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 60 seconds (1 minute)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "2",
+   "1"
+  ],
+  "expected": "Lower the TTL from 2 seconds to 1 second, then wait at least 2 seconds from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 1 second."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "60",
+   "59"
+  ],
+  "expected": "Lower the TTL from 60 seconds (1 minute) to 59 seconds, then wait at least 60 seconds (1 minute) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 59 seconds."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "61",
+   "60"
+  ],
+  "expected": "Lower the TTL from 61 seconds (1 minute and 1 second) to 60 seconds (1 minute), then wait at least 61 seconds (1 minute and 1 second) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 60 seconds (1 minute)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "3601",
+   "3600"
+  ],
+  "expected": "Lower the TTL from 3601 seconds (1 hour and 1 second) to 3600 seconds (1 hour), then wait at least 3601 seconds (1 hour and 1 second) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 3600 seconds (1 hour)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "90061",
+   "3661"
+  ],
+  "expected": "Lower the TTL from 90061 seconds (1 day, 1 hour, 1 minute and 1 second) to 3661 seconds (1 hour, 1 minute and 1 second), then wait at least 90061 seconds (1 day, 1 hour, 1 minute and 1 second) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 3661 seconds (1 hour, 1 minute and 1 second)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "86401",
+   "1"
+  ],
+  "expected": "Lower the TTL from 86401 seconds (1 day and 1 second) to 1 second, then wait at least 86401 seconds (1 day and 1 second) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 1 second."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "172800",
+   "86400"
+  ],
+  "expected": "Lower the TTL from 172800 seconds (2 days) to 86400 seconds (1 day), then wait at least 172800 seconds (2 days) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 86400 seconds (1 day)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "604800",
+   "3600"
+  ],
+  "expected": "Lower the TTL from 604800 seconds (7 days) to 3600 seconds (1 hour), then wait at least 604800 seconds (7 days) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 3600 seconds (1 hour)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "2592000",
+   "1"
+  ],
+  "expected": "Lower the TTL from 2592000 seconds (30 days) to 1 second, then wait at least 2592000 seconds (30 days) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 1 second."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "2592000",
+   "2591999"
+  ],
+  "expected": "Lower the TTL from 2592000 seconds (30 days) to 2591999 seconds (29 days, 23 hours, 59 minutes and 59 seconds), then wait at least 2592000 seconds (30 days) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 2591999 seconds (29 days, 23 hours, 59 minutes and 59 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "300",
+   "300"
+  ],
+  "expected": "ERR:the lowered TTL must be less than the old TTL"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "300",
+   "301"
+  ],
+  "expected": "ERR:the lowered TTL must be less than the old TTL"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "1",
+   "1"
+  ],
+  "expected": "ERR:the lowered TTL must be less than the old TTL"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "1",
+   "2"
+  ],
+  "expected": "ERR:the lowered TTL must be less than the old TTL"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "0",
+   "0"
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "0",
+   "300"
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "300",
+   "0"
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "2592001",
+   "300"
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "300",
+   "2592001"
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "x",
+   "300"
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "300",
+   ""
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   " 86400 ",
+   " 300 "
+  ],
+  "expected": "Lower the TTL from 86400 seconds (1 day) to 300 seconds (5 minutes), then wait at least 86400 seconds (1 day) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 300 seconds (5 minutes)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "-5",
+   "3"
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "1.5",
+   "1"
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "12345678",
+   "1"
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1000",
+   "300"
+  ],
+  "expected": "1000 caches each asking your server at most once every 300 seconds (5 minutes) send it at most 3.33 queries a second, about 288000 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1",
+   "3"
+  ],
+  "expected": "1 cache each asking your server at most once every 3 seconds sends it at most 0.33 queries a second, about 28800 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1",
+   "1"
+  ],
+  "expected": "1 cache each asking your server at most once every 1 second sends it at most 1 query a second, about 86400 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1",
+   "86400"
+  ],
+  "expected": "1 cache each asking your server at most once every 86400 seconds (1 day) sends it fewer than 0.01 queries a second, about 1 query a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1",
+   "2592000"
+  ],
+  "expected": "1 cache each asking your server at most once every 2592000 seconds (30 days) sends it fewer than 0.01 queries a second, fewer than 1 query a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1000000",
+   "1"
+  ],
+  "expected": "1000000 caches each asking your server at most once every 1 second send it at most 1000000 queries a second, about 86400000000 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1000000",
+   "2592000"
+  ],
+  "expected": "1000000 caches each asking your server at most once every 2592000 seconds (30 days) send it at most 0.39 queries a second, about 33333 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1000",
+   "2592000"
+  ],
+  "expected": "1000 caches each asking your server at most once every 2592000 seconds (30 days) send it fewer than 0.01 queries a second, about 33 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "3",
+   "7"
+  ],
+  "expected": "3 caches each asking your server at most once every 7 seconds send it at most 0.43 queries a second, about 37029 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "2",
+   "3"
+  ],
+  "expected": "2 caches each asking your server at most once every 3 seconds send it at most 0.67 queries a second, about 57600 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "5",
+   "3"
+  ],
+  "expected": "5 caches each asking your server at most once every 3 seconds send it at most 1.67 queries a second, about 144000 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "7",
+   "86400"
+  ],
+  "expected": "7 caches each asking your server at most once every 86400 seconds (1 day) send it fewer than 0.01 queries a second, about 7 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "100",
+   "60"
+  ],
+  "expected": "100 caches each asking your server at most once every 60 seconds (1 minute) send it at most 1.67 queries a second, about 144000 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "0",
+   "300"
+  ],
+  "expected": "ERR:the caches must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1000001",
+   "300"
+  ],
+  "expected": "ERR:the caches must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1",
+   "0"
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1",
+   "2592001"
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "x",
+   "300"
+  ],
+  "expected": "ERR:the caches must be a whole number from 1 to 1000000"
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1000",
+   ""
+  ],
+  "expected": "ERR:the TTL must be a whole number of seconds from 1 to 2592000"
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   " 50 ",
+   " 20 "
+  ],
+  "expected": "50 caches each asking your server at most once every 20 seconds send it at most 2.5 queries a second, about 216000 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "43200",
+   "1"
+  ],
+  "expected": "43200 caches each asking your server at most once every 1 second send it at most 43200 queries a second, about 3732480000 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1",
+   "172800"
+  ],
+  "expected": "1 cache each asking your server at most once every 172800 seconds (2 days) sends it fewer than 0.01 queries a second, about 1 query a day."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "3600",
+   "900"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 3600 seconds (1 hour), and the SOA minimum, 900 seconds (15 minutes). That is 900 seconds (15 minutes), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "900",
+   "3600"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 900 seconds (15 minutes), and the SOA minimum, 3600 seconds (1 hour). That is 900 seconds (15 minutes), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "300",
+   "300"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 300 seconds (5 minutes), and the SOA minimum, 300 seconds (5 minutes). That is 300 seconds (5 minutes), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "0",
+   "300"
+  ],
+  "expected": "The smaller of the two is 0 seconds, so a cache keeps no \"no such name\" answer and a new record can show up at once."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "300",
+   "0"
+  ],
+  "expected": "The smaller of the two is 0 seconds, so a cache keeps no \"no such name\" answer and a new record can show up at once."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "0",
+   "0"
+  ],
+  "expected": "The smaller of the two is 0 seconds, so a cache keeps no \"no such name\" answer and a new record can show up at once."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "1",
+   "61"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 1 second, and the SOA minimum, 61 seconds (1 minute and 1 second). That is 1 second, and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "86400",
+   "86400"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 86400 seconds (1 day), and the SOA minimum, 86400 seconds (1 day). That is 86400 seconds (1 day), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "2592000",
+   "0"
+  ],
+  "expected": "The smaller of the two is 0 seconds, so a cache keeps no \"no such name\" answer and a new record can show up at once."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "2592000",
+   "2592000"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 2592000 seconds (30 days), and the SOA minimum, 2592000 seconds (30 days). That is 2592000 seconds (30 days), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "3661",
+   "7322"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 3661 seconds (1 hour, 1 minute and 1 second), and the SOA minimum, 7322 seconds (2 hours, 2 minutes and 2 seconds). That is 3661 seconds (1 hour, 1 minute and 1 second), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "2592001",
+   "5"
+  ],
+  "expected": "ERR:the SOA record TTL must be a whole number of seconds from 0 to 2592000"
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "5",
+   "2592001"
+  ],
+  "expected": "ERR:the SOA minimum must be a whole number of seconds from 0 to 2592000"
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "x",
+   "5"
+  ],
+  "expected": "ERR:the SOA record TTL must be a whole number of seconds from 0 to 2592000"
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "5",
+   ""
+  ],
+  "expected": "ERR:the SOA minimum must be a whole number of seconds from 0 to 2592000"
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "-1",
+   "5"
+  ],
+  "expected": "ERR:the SOA record TTL must be a whole number of seconds from 0 to 2592000"
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   " 60 ",
+   " 120 "
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 60 seconds (1 minute), and the SOA minimum, 120 seconds (2 minutes). That is 60 seconds (1 minute), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "9163",
+   "8182"
+  ],
+  "expected": "Lower the TTL from 9163 seconds (2 hours, 32 minutes and 43 seconds) to 8182 seconds (2 hours, 16 minutes and 22 seconds), then wait at least 9163 seconds (2 hours, 32 minutes and 43 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 8182 seconds (2 hours, 16 minutes and 22 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "3384",
+   "455"
+  ],
+  "expected": "Lower the TTL from 3384 seconds (56 minutes and 24 seconds) to 455 seconds (7 minutes and 35 seconds), then wait at least 3384 seconds (56 minutes and 24 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 455 seconds (7 minutes and 35 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "18015",
+   "7924"
+  ],
+  "expected": "Lower the TTL from 18015 seconds (5 hours and 15 seconds) to 7924 seconds (2 hours, 12 minutes and 4 seconds), then wait at least 18015 seconds (5 hours and 15 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 7924 seconds (2 hours, 12 minutes and 4 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "17478",
+   "7318"
+  ],
+  "expected": "Lower the TTL from 17478 seconds (4 hours, 51 minutes and 18 seconds) to 7318 seconds (2 hours, 1 minute and 58 seconds), then wait at least 17478 seconds (4 hours, 51 minutes and 18 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 7318 seconds (2 hours, 1 minute and 58 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "15395",
+   "8827"
+  ],
+  "expected": "Lower the TTL from 15395 seconds (4 hours, 16 minutes and 35 seconds) to 8827 seconds (2 hours, 27 minutes and 7 seconds), then wait at least 15395 seconds (4 hours, 16 minutes and 35 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 8827 seconds (2 hours, 27 minutes and 7 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "17456",
+   "1377"
+  ],
+  "expected": "Lower the TTL from 17456 seconds (4 hours, 50 minutes and 56 seconds) to 1377 seconds (22 minutes and 57 seconds), then wait at least 17456 seconds (4 hours, 50 minutes and 56 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 1377 seconds (22 minutes and 57 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "9428",
+   "2907"
+  ],
+  "expected": "Lower the TTL from 9428 seconds (2 hours, 37 minutes and 8 seconds) to 2907 seconds (48 minutes and 27 seconds), then wait at least 9428 seconds (2 hours, 37 minutes and 8 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 2907 seconds (48 minutes and 27 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "19810",
+   "3967"
+  ],
+  "expected": "Lower the TTL from 19810 seconds (5 hours, 30 minutes and 10 seconds) to 3967 seconds (1 hour, 6 minutes and 7 seconds), then wait at least 19810 seconds (5 hours, 30 minutes and 10 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 3967 seconds (1 hour, 6 minutes and 7 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "5065",
+   "4601"
+  ],
+  "expected": "Lower the TTL from 5065 seconds (1 hour, 24 minutes and 25 seconds) to 4601 seconds (1 hour, 16 minutes and 41 seconds), then wait at least 5065 seconds (1 hour, 24 minutes and 25 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 4601 seconds (1 hour, 16 minutes and 41 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "12397",
+   "724"
+  ],
+  "expected": "Lower the TTL from 12397 seconds (3 hours, 26 minutes and 37 seconds) to 724 seconds (12 minutes and 4 seconds), then wait at least 12397 seconds (3 hours, 26 minutes and 37 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 724 seconds (12 minutes and 4 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "10577",
+   "7104"
+  ],
+  "expected": "Lower the TTL from 10577 seconds (2 hours, 56 minutes and 17 seconds) to 7104 seconds (1 hour, 58 minutes and 24 seconds), then wait at least 10577 seconds (2 hours, 56 minutes and 17 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 7104 seconds (1 hour, 58 minutes and 24 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "11847",
+   "5414"
+  ],
+  "expected": "Lower the TTL from 11847 seconds (3 hours, 17 minutes and 27 seconds) to 5414 seconds (1 hour, 30 minutes and 14 seconds), then wait at least 11847 seconds (3 hours, 17 minutes and 27 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 5414 seconds (1 hour, 30 minutes and 14 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "8459",
+   "5074"
+  ],
+  "expected": "Lower the TTL from 8459 seconds (2 hours, 20 minutes and 59 seconds) to 5074 seconds (1 hour, 24 minutes and 34 seconds), then wait at least 8459 seconds (2 hours, 20 minutes and 59 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 5074 seconds (1 hour, 24 minutes and 34 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "3774",
+   "3342"
+  ],
+  "expected": "Lower the TTL from 3774 seconds (1 hour, 2 minutes and 54 seconds) to 3342 seconds (55 minutes and 42 seconds), then wait at least 3774 seconds (1 hour, 2 minutes and 54 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 3342 seconds (55 minutes and 42 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "8230",
+   "2561"
+  ],
+  "expected": "Lower the TTL from 8230 seconds (2 hours, 17 minutes and 10 seconds) to 2561 seconds (42 minutes and 41 seconds), then wait at least 8230 seconds (2 hours, 17 minutes and 10 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 2561 seconds (42 minutes and 41 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "17693",
+   "16907"
+  ],
+  "expected": "Lower the TTL from 17693 seconds (4 hours, 54 minutes and 53 seconds) to 16907 seconds (4 hours, 41 minutes and 47 seconds), then wait at least 17693 seconds (4 hours, 54 minutes and 53 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 16907 seconds (4 hours, 41 minutes and 47 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "18359",
+   "2144"
+  ],
+  "expected": "Lower the TTL from 18359 seconds (5 hours, 5 minutes and 59 seconds) to 2144 seconds (35 minutes and 44 seconds), then wait at least 18359 seconds (5 hours, 5 minutes and 59 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 2144 seconds (35 minutes and 44 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "18307",
+   "14135"
+  ],
+  "expected": "Lower the TTL from 18307 seconds (5 hours, 5 minutes and 7 seconds) to 14135 seconds (3 hours, 55 minutes and 35 seconds), then wait at least 18307 seconds (5 hours, 5 minutes and 7 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 14135 seconds (3 hours, 55 minutes and 35 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "14651",
+   "3746"
+  ],
+  "expected": "Lower the TTL from 14651 seconds (4 hours, 4 minutes and 11 seconds) to 3746 seconds (1 hour, 2 minutes and 26 seconds), then wait at least 14651 seconds (4 hours, 4 minutes and 11 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 3746 seconds (1 hour, 2 minutes and 26 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "12873",
+   "8410"
+  ],
+  "expected": "Lower the TTL from 12873 seconds (3 hours, 34 minutes and 33 seconds) to 8410 seconds (2 hours, 20 minutes and 10 seconds), then wait at least 12873 seconds (3 hours, 34 minutes and 33 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 8410 seconds (2 hours, 20 minutes and 10 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "6359",
+   "3385"
+  ],
+  "expected": "Lower the TTL from 6359 seconds (1 hour, 45 minutes and 59 seconds) to 3385 seconds (56 minutes and 25 seconds), then wait at least 6359 seconds (1 hour, 45 minutes and 59 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 3385 seconds (56 minutes and 25 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "6149",
+   "142"
+  ],
+  "expected": "Lower the TTL from 6149 seconds (1 hour, 42 minutes and 29 seconds) to 142 seconds (2 minutes and 22 seconds), then wait at least 6149 seconds (1 hour, 42 minutes and 29 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 142 seconds (2 minutes and 22 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "95",
+   "87"
+  ],
+  "expected": "Lower the TTL from 95 seconds (1 minute and 35 seconds) to 87 seconds (1 minute and 27 seconds), then wait at least 95 seconds (1 minute and 35 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 87 seconds (1 minute and 27 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "1924",
+   "1485"
+  ],
+  "expected": "Lower the TTL from 1924 seconds (32 minutes and 4 seconds) to 1485 seconds (24 minutes and 45 seconds), then wait at least 1924 seconds (32 minutes and 4 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 1485 seconds (24 minutes and 45 seconds)."
+ },
+ {
+  "fn": "waitTruth",
+  "args": [
+   "10461",
+   "3847"
+  ],
+  "expected": "Lower the TTL from 10461 seconds (2 hours, 54 minutes and 21 seconds) to 3847 seconds (1 hour, 4 minutes and 7 seconds), then wait at least 10461 seconds (2 hours, 54 minutes and 21 seconds) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 3847 seconds (1 hour, 4 minutes and 7 seconds)."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "4103",
+   "54372"
+  ],
+  "expected": "4103 caches each asking your server at most once every 54372 seconds (15 hours, 6 minutes and 12 seconds) send it at most 0.08 queries a second, about 6520 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "3603",
+   "98251"
+  ],
+  "expected": "3603 caches each asking your server at most once every 98251 seconds (1 day, 3 hours, 17 minutes and 31 seconds) send it at most 0.04 queries a second, about 3168 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "771",
+   "4017"
+  ],
+  "expected": "771 caches each asking your server at most once every 4017 seconds (1 hour, 6 minutes and 57 seconds) send it at most 0.19 queries a second, about 16583 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "3990",
+   "15285"
+  ],
+  "expected": "3990 caches each asking your server at most once every 15285 seconds (4 hours, 14 minutes and 45 seconds) send it at most 0.26 queries a second, about 22554 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "3341",
+   "18730"
+  ],
+  "expected": "3341 caches each asking your server at most once every 18730 seconds (5 hours, 12 minutes and 10 seconds) send it at most 0.18 queries a second, about 15412 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "651",
+   "62056"
+  ],
+  "expected": "651 caches each asking your server at most once every 62056 seconds (17 hours, 14 minutes and 16 seconds) send it at most 0.01 queries a second, about 906 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "2117",
+   "47030"
+  ],
+  "expected": "2117 caches each asking your server at most once every 47030 seconds (13 hours, 3 minutes and 50 seconds) send it at most 0.05 queries a second, about 3889 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "4105",
+   "39953"
+  ],
+  "expected": "4105 caches each asking your server at most once every 39953 seconds (11 hours, 5 minutes and 53 seconds) send it at most 0.1 queries a second, about 8877 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1543",
+   "45364"
+  ],
+  "expected": "1543 caches each asking your server at most once every 45364 seconds (12 hours, 36 minutes and 4 seconds) send it at most 0.03 queries a second, about 2939 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "4141",
+   "57839"
+  ],
+  "expected": "4141 caches each asking your server at most once every 57839 seconds (16 hours, 3 minutes and 59 seconds) send it at most 0.07 queries a second, about 6186 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "2269",
+   "28266"
+  ],
+  "expected": "2269 caches each asking your server at most once every 28266 seconds (7 hours, 51 minutes and 6 seconds) send it at most 0.08 queries a second, about 6936 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1822",
+   "62797"
+  ],
+  "expected": "1822 caches each asking your server at most once every 62797 seconds (17 hours, 26 minutes and 37 seconds) send it at most 0.03 queries a second, about 2507 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1534",
+   "51460"
+  ],
+  "expected": "1534 caches each asking your server at most once every 51460 seconds (14 hours, 17 minutes and 40 seconds) send it at most 0.03 queries a second, about 2576 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "4085",
+   "4841"
+  ],
+  "expected": "4085 caches each asking your server at most once every 4841 seconds (1 hour, 20 minutes and 41 seconds) send it at most 0.84 queries a second, about 72907 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1974",
+   "24369"
+  ],
+  "expected": "1974 caches each asking your server at most once every 24369 seconds (6 hours, 46 minutes and 9 seconds) send it at most 0.08 queries a second, about 6999 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "2104",
+   "8695"
+  ],
+  "expected": "2104 caches each asking your server at most once every 8695 seconds (2 hours, 24 minutes and 55 seconds) send it at most 0.24 queries a second, about 20907 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "836",
+   "17382"
+  ],
+  "expected": "836 caches each asking your server at most once every 17382 seconds (4 hours, 49 minutes and 42 seconds) send it at most 0.05 queries a second, about 4155 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "311",
+   "73041"
+  ],
+  "expected": "311 caches each asking your server at most once every 73041 seconds (20 hours, 17 minutes and 21 seconds) send it fewer than 0.01 queries a second, about 368 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "19",
+   "31233"
+  ],
+  "expected": "19 caches each asking your server at most once every 31233 seconds (8 hours, 40 minutes and 33 seconds) send it fewer than 0.01 queries a second, about 53 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "4164",
+   "47534"
+  ],
+  "expected": "4164 caches each asking your server at most once every 47534 seconds (13 hours, 12 minutes and 14 seconds) send it at most 0.09 queries a second, about 7569 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "2165",
+   "70052"
+  ],
+  "expected": "2165 caches each asking your server at most once every 70052 seconds (19 hours, 27 minutes and 32 seconds) send it at most 0.03 queries a second, about 2670 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "2478",
+   "2261"
+  ],
+  "expected": "2478 caches each asking your server at most once every 2261 seconds (37 minutes and 41 seconds) send it at most 1.1 queries a second, about 94692 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "3232",
+   "69612"
+  ],
+  "expected": "3232 caches each asking your server at most once every 69612 seconds (19 hours, 20 minutes and 12 seconds) send it at most 0.05 queries a second, about 4011 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "2332",
+   "10759"
+  ],
+  "expected": "2332 caches each asking your server at most once every 10759 seconds (2 hours, 59 minutes and 19 seconds) send it at most 0.22 queries a second, about 18727 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "3128",
+   "18937"
+  ],
+  "expected": "3128 caches each asking your server at most once every 18937 seconds (5 hours, 15 minutes and 37 seconds) send it at most 0.17 queries a second, about 14271 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "2623",
+   "39427"
+  ],
+  "expected": "2623 caches each asking your server at most once every 39427 seconds (10 hours, 57 minutes and 7 seconds) send it at most 0.07 queries a second, about 5748 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "438",
+   "22797"
+  ],
+  "expected": "438 caches each asking your server at most once every 22797 seconds (6 hours, 19 minutes and 57 seconds) send it at most 0.02 queries a second, about 1660 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "4132",
+   "27067"
+  ],
+  "expected": "4132 caches each asking your server at most once every 27067 seconds (7 hours, 31 minutes and 7 seconds) send it at most 0.15 queries a second, about 13190 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "214",
+   "79722"
+  ],
+  "expected": "214 caches each asking your server at most once every 79722 seconds (22 hours, 8 minutes and 42 seconds) send it fewer than 0.01 queries a second, about 232 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "4961",
+   "11124"
+  ],
+  "expected": "4961 caches each asking your server at most once every 11124 seconds (3 hours, 5 minutes and 24 seconds) send it at most 0.45 queries a second, about 38532 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "3201",
+   "14618"
+  ],
+  "expected": "3201 caches each asking your server at most once every 14618 seconds (4 hours, 3 minutes and 38 seconds) send it at most 0.22 queries a second, about 18920 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "321",
+   "44148"
+  ],
+  "expected": "321 caches each asking your server at most once every 44148 seconds (12 hours, 15 minutes and 48 seconds) send it at most 0.01 queries a second, about 628 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1370",
+   "59058"
+  ],
+  "expected": "1370 caches each asking your server at most once every 59058 seconds (16 hours, 24 minutes and 18 seconds) send it at most 0.02 queries a second, about 2004 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "99",
+   "93981"
+  ],
+  "expected": "99 caches each asking your server at most once every 93981 seconds (1 day, 2 hours, 6 minutes and 21 seconds) send it fewer than 0.01 queries a second, about 91 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "4787",
+   "17380"
+  ],
+  "expected": "4787 caches each asking your server at most once every 17380 seconds (4 hours, 49 minutes and 40 seconds) send it at most 0.28 queries a second, about 23797 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "3459",
+   "12029"
+  ],
+  "expected": "3459 caches each asking your server at most once every 12029 seconds (3 hours, 20 minutes and 29 seconds) send it at most 0.29 queries a second, about 24845 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "1061",
+   "33645"
+  ],
+  "expected": "1061 caches each asking your server at most once every 33645 seconds (9 hours, 20 minutes and 45 seconds) send it at most 0.03 queries a second, about 2725 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "4255",
+   "8206"
+  ],
+  "expected": "4255 caches each asking your server at most once every 8206 seconds (2 hours, 16 minutes and 46 seconds) send it at most 0.52 queries a second, about 44800 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "3721",
+   "28702"
+  ],
+  "expected": "3721 caches each asking your server at most once every 28702 seconds (7 hours, 58 minutes and 22 seconds) send it at most 0.13 queries a second, about 11201 queries a day."
+ },
+ {
+  "fn": "loadTruth",
+  "args": [
+   "4045",
+   "36451"
+  ],
+  "expected": "4045 caches each asking your server at most once every 36451 seconds (10 hours, 7 minutes and 31 seconds) send it at most 0.11 queries a second, about 9588 queries a day."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "93726",
+   "51640"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 93726 seconds (1 day, 2 hours, 2 minutes and 6 seconds), and the SOA minimum, 51640 seconds (14 hours, 20 minutes and 40 seconds). That is 51640 seconds (14 hours, 20 minutes and 40 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "48009",
+   "53151"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 48009 seconds (13 hours, 20 minutes and 9 seconds), and the SOA minimum, 53151 seconds (14 hours, 45 minutes and 51 seconds). That is 48009 seconds (13 hours, 20 minutes and 9 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "97195",
+   "66977"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 97195 seconds (1 day, 2 hours, 59 minutes and 55 seconds), and the SOA minimum, 66977 seconds (18 hours, 36 minutes and 17 seconds). That is 66977 seconds (18 hours, 36 minutes and 17 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "39375",
+   "7239"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 39375 seconds (10 hours, 56 minutes and 15 seconds), and the SOA minimum, 7239 seconds (2 hours and 39 seconds). That is 7239 seconds (2 hours and 39 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "6285",
+   "98935"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 6285 seconds (1 hour, 44 minutes and 45 seconds), and the SOA minimum, 98935 seconds (1 day, 3 hours, 28 minutes and 55 seconds). That is 6285 seconds (1 hour, 44 minutes and 45 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "54952",
+   "10375"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 54952 seconds (15 hours, 15 minutes and 52 seconds), and the SOA minimum, 10375 seconds (2 hours, 52 minutes and 55 seconds). That is 10375 seconds (2 hours, 52 minutes and 55 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "33527",
+   "41875"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 33527 seconds (9 hours, 18 minutes and 47 seconds), and the SOA minimum, 41875 seconds (11 hours, 37 minutes and 55 seconds). That is 33527 seconds (9 hours, 18 minutes and 47 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "34712",
+   "148"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 34712 seconds (9 hours, 38 minutes and 32 seconds), and the SOA minimum, 148 seconds (2 minutes and 28 seconds). That is 148 seconds (2 minutes and 28 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "38501",
+   "92917"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 38501 seconds (10 hours, 41 minutes and 41 seconds), and the SOA minimum, 92917 seconds (1 day, 1 hour, 48 minutes and 37 seconds). That is 38501 seconds (10 hours, 41 minutes and 41 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "84055",
+   "32763"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 84055 seconds (23 hours, 20 minutes and 55 seconds), and the SOA minimum, 32763 seconds (9 hours, 6 minutes and 3 seconds). That is 32763 seconds (9 hours, 6 minutes and 3 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "89496",
+   "77538"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 89496 seconds (1 day, 51 minutes and 36 seconds), and the SOA minimum, 77538 seconds (21 hours, 32 minutes and 18 seconds). That is 77538 seconds (21 hours, 32 minutes and 18 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "35768",
+   "87841"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 35768 seconds (9 hours, 56 minutes and 8 seconds), and the SOA minimum, 87841 seconds (1 day, 24 minutes and 1 second). That is 35768 seconds (9 hours, 56 minutes and 8 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "90141",
+   "48357"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 90141 seconds (1 day, 1 hour, 2 minutes and 21 seconds), and the SOA minimum, 48357 seconds (13 hours, 25 minutes and 57 seconds). That is 48357 seconds (13 hours, 25 minutes and 57 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "45729",
+   "65082"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 45729 seconds (12 hours, 42 minutes and 9 seconds), and the SOA minimum, 65082 seconds (18 hours, 4 minutes and 42 seconds). That is 45729 seconds (12 hours, 42 minutes and 9 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "10416",
+   "79409"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 10416 seconds (2 hours, 53 minutes and 36 seconds), and the SOA minimum, 79409 seconds (22 hours, 3 minutes and 29 seconds). That is 10416 seconds (2 hours, 53 minutes and 36 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "15743",
+   "16020"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 15743 seconds (4 hours, 22 minutes and 23 seconds), and the SOA minimum, 16020 seconds (4 hours and 27 minutes). That is 15743 seconds (4 hours, 22 minutes and 23 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "10399",
+   "5834"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 10399 seconds (2 hours, 53 minutes and 19 seconds), and the SOA minimum, 5834 seconds (1 hour, 37 minutes and 14 seconds). That is 5834 seconds (1 hour, 37 minutes and 14 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "65507",
+   "18783"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 65507 seconds (18 hours, 11 minutes and 47 seconds), and the SOA minimum, 18783 seconds (5 hours, 13 minutes and 3 seconds). That is 18783 seconds (5 hours, 13 minutes and 3 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "71714",
+   "92457"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 71714 seconds (19 hours, 55 minutes and 14 seconds), and the SOA minimum, 92457 seconds (1 day, 1 hour, 40 minutes and 57 seconds). That is 71714 seconds (19 hours, 55 minutes and 14 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "79392",
+   "76884"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 79392 seconds (22 hours, 3 minutes and 12 seconds), and the SOA minimum, 76884 seconds (21 hours, 21 minutes and 24 seconds). That is 76884 seconds (21 hours, 21 minutes and 24 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "84717",
+   "10147"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 84717 seconds (23 hours, 31 minutes and 57 seconds), and the SOA minimum, 10147 seconds (2 hours, 49 minutes and 7 seconds). That is 10147 seconds (2 hours, 49 minutes and 7 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "71195",
+   "58691"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 71195 seconds (19 hours, 46 minutes and 35 seconds), and the SOA minimum, 58691 seconds (16 hours, 18 minutes and 11 seconds). That is 58691 seconds (16 hours, 18 minutes and 11 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "66282",
+   "72872"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 66282 seconds (18 hours, 24 minutes and 42 seconds), and the SOA minimum, 72872 seconds (20 hours, 14 minutes and 32 seconds). That is 66282 seconds (18 hours, 24 minutes and 42 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "87372",
+   "93243"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 87372 seconds (1 day, 16 minutes and 12 seconds), and the SOA minimum, 93243 seconds (1 day, 1 hour, 54 minutes and 3 seconds). That is 87372 seconds (1 day, 16 minutes and 12 seconds), and a record you add for that name may stay unseen that long."
+ },
+ {
+  "fn": "negTruth",
+  "args": [
+   "12247",
+   "60651"
+  ],
+  "expected": "A cache keeps a \"no such name\" answer for the smaller of two numbers: the SOA record TTL, 12247 seconds (3 hours, 24 minutes and 7 seconds), and the SOA minimum, 60651 seconds (16 hours, 50 minutes and 51 seconds). That is 12247 seconds (3 hours, 24 minutes and 7 seconds), and a record you add for that name may stay unseen that long."
+ }
+]
