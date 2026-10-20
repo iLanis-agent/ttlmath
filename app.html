@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TTL Math - app</title>
+<style>
+  :root { --accent:#5b3fa0; --ink:#1e1538; --paper:#f7f4fd; --soft:#e6dff6; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:Georgia, "Times New Roman", serif; background:var(--paper); color:var(--ink); line-height:1.55; }
+  main { max-width:660px; margin:0 auto; }
+  .boundary { background:#fdeaea; border-left:6px solid #b03030; color:#5c1c1c; border-radius:6px; padding:1rem 1.1rem; }
+  .boundary strong { display:block; margin-bottom:.3rem; }
+  body { padding:2rem 1.2rem; }
+  h1 { font-size:1.8rem; color:var(--accent); }
+  .boundary { margin:1rem 0 1.4rem; }
+  .panel { background:var(--soft); border-left:5px solid var(--accent); border-radius:6px; padding:1rem 1.1rem; margin-bottom:1.1rem; }
+  h2 { font-size:1.1rem; margin-bottom:.6rem; }
+  p.note { font-size:.9rem; margin-bottom:.4rem; }
+  label { display:block; font-size:.9rem; margin:.45rem 0 .1rem; }
+  input { width:100%; padding:.45rem .55rem; font-size:1rem; border:1px solid #b7a6e0; border-radius:6px; background:#fff; color:var(--ink); }
+  .row2 { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; }
+  .row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:.6rem; }
+  .out { margin-top:.7rem; font-size:.98rem; background:#fff; border:1px dashed #b7a6e0; border-radius:6px; padding:.6rem .7rem; min-height:2.4rem; overflow-wrap:anywhere; }
+  .out.err { border-color:#b03030; color:#8a1f1f; }
+  footer { margin-top:1.8rem; font-size:.85rem; color:#7a6aa8; }
+  a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>TTL Math</h1>
+  <div class="boundary">
+    <strong>Boundary: arithmetic only</strong>
+    This page works out DNS cache timing from the numbers you type. It has not looked at your domain, your DNS provider or your records. It does not know which resolvers, browsers, operating systems or apps along the way ignore, stretch or cut a TTL, and it gives no verdict that a change will go smoothly. Every number is your own entry.
+  </div>
+
+  <div class="panel">
+    <h2>The wait truth</h2>
+    <p class="note">Before moving a record, lower its TTL and wait. TTLs are in seconds.</p>
+    <div class="row2">
+      <div><label for="w-o">Old TTL</label><input id="w-o" type="text" value="86400"></div>
+      <div><label for="w-n">Lowered TTL</label><input id="w-n" type="text" value="300"></div>
+    </div>
+    <div class="out" id="w-out"></div>
+  </div>
+
+  <div class="panel">
+    <h2>The load truth</h2>
+    <p class="note">What a TTL costs your server in questions from caches.</p>
+    <div class="row2">
+      <div><label for="l-c">Caches</label><input id="l-c" type="text" value="1000"></div>
+      <div><label for="l-t">TTL</label><input id="l-t" type="text" value="300"></div>
+    </div>
+    <div class="out" id="l-out"></div>
+  </div>
+
+  <div class="panel">
+    <h2>The missing name truth</h2>
+    <p class="note">How long a cache remembers that a name did not exist. Both numbers are on the SOA record.</p>
+    <div class="row2">
+      <div><label for="n-a">SOA TTL</label><input id="n-a" type="text" value="3600"></div>
+      <div><label for="n-b">SOA minimum</label><input id="n-b" type="text" value="900"></div>
+    </div>
+    <div class="out" id="n-out"></div>
+  </div>
+
+  <footer>TTL Math is exact arithmetic over the numbers you enter. <a href="index.html">Why it exists</a>.</footer>
+</main>
+<script src="engine.js"></script>
+<script>
+  function show(id, fn) {
+    const out = document.getElementById(id);
+    try { out.textContent = fn(); out.classList.remove("err"); }
+    catch (e) { out.textContent = e.message; out.classList.add("err"); }
+  }
+  function recalc() {
+    const v = (id) => document.getElementById(id).value;
+    show("w-out", () => waitTruth(v("w-o"), v("w-n")));
+    show("l-out", () => loadTruth(v("l-c"), v("l-t")));
+    show("n-out", () => negTruth(v("n-a"), v("n-b")));
+  }
+  document.querySelectorAll("input").forEach((el) => {
+    el.addEventListener("input", recalc);
+    el.addEventListener("change", recalc);
+  });
+  recalc();
+</script>
+</body>
+</html>
