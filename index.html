@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TTL Math - DNS cache timing arithmetic</title>
+<style>
+  :root { --accent:#5b3fa0; --ink:#1e1538; --paper:#f7f4fd; --soft:#e6dff6; }
+  * { box-sizing:border-box; margin:0; }
+  body { font-family:Georgia, "Times New Roman", serif; background:var(--paper); color:var(--ink); line-height:1.55; }
+  main { max-width:660px; margin:0 auto; }
+  .boundary { background:#fdeaea; border-left:6px solid #b03030; color:#5c1c1c; border-radius:6px; padding:1rem 1.1rem; }
+  .boundary strong { display:block; margin-bottom:.3rem; }
+  body { padding:2.5rem 1.2rem; }
+  h1 { font-size:2.2rem; color:var(--accent); }
+  p.lede { font-size:1.12rem; margin:.9rem 0 1.6rem; }
+  .boundary { margin-bottom:1.6rem; }
+  section { background:var(--soft); border-left:5px solid var(--accent); border-radius:6px; padding:1.1rem 1.2rem; margin-bottom:1.2rem; }
+  h2 { font-size:1.18rem; margin-bottom:.5rem; }
+  section p { font-size:.98rem; }
+  a.btn { display:inline-block; margin-top:1.4rem; background:var(--accent); color:#fff; text-decoration:none; padding:.8rem 1.6rem; border-radius:999px; font-size:1.05rem; }
+  footer { margin-top:2.2rem; font-size:.85rem; color:#7a6aa8; }
+</style>
+</head>
+<body>
+<main>
+  <h1>TTL Math</h1>
+  <p class="lede">Lowering a TTL from 86400 seconds to 300 seconds means waiting 86400 seconds, which is 1 day, before you move the record.</p>
+  <div class="boundary">
+    <strong>Boundary: arithmetic only</strong>
+    TTL Math works out DNS cache timing from the numbers you type. It has not looked at your domain, your DNS provider or your records. It does not know which resolvers, browsers, operating systems or apps along the way ignore, stretch or cut a TTL, and it gives no verdict that a change will go smoothly. Every number is your own entry.
+  </div>
+  <p class="lede" style="font-size:1rem">Starting examples: lowering a 1 day TTL to 5 minutes, 1000 caches refreshing every 5 minutes, and a zone whose SOA numbers are 1 hour and 15 minutes.</p>
+  <section>
+    <h2>The wait truth</h2>
+    <p>Lower the TTL from 86400 seconds (1 day) to 300 seconds (5 minutes), then wait at least 86400 seconds (1 day) from that moment before you change the record, because a cache may hold the old answer that long. After the change, a cache can still serve the old answer for at most 300 seconds (5 minutes).</p>
+  </section>
+  <section>
+    <h2>The load truth</h2>
+    <p>1000 caches each asking your server at most once every 300 seconds (5 minutes) send it at most 3.33 queries a second, about 288000 queries a day.</p>
+  </section>
+  <section>
+    <h2>The missing name truth</h2>
+    <p>A cache keeps a "no such name" answer for the smaller of two numbers: the SOA record TTL, 3600 seconds (1 hour), and the SOA minimum, 900 seconds (15 minutes). That is 900 seconds (15 minutes), and a record you add for that name may stay unseen that long.</p>
+  </section>
+  <a class="btn" href="app.html">Time your change</a>
+  <footer>TTL Math is exact arithmetic over the numbers you enter, nothing more.</footer>
+</main>
+</body>
+</html>
